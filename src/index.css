@@ -85,7 +85,9 @@ li {
 .mail-box {
   border: 2px solid white;
   padding: 20px;
-  width: 50%;
+  width: 30%;
+  min-width: 200px;
+  aspect-ratio: 1/1;
 }
 
 form {
@@ -104,6 +106,7 @@ input,
 select,
 textarea {
   padding: 8px;
+  border-radius: 5px;
 }
 
 button {

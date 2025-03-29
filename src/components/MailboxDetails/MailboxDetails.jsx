@@ -12,9 +12,9 @@ const MailboxDetails = (props) => {
     return <h1>No mailbox Found</h1>;
   return (
     <>
-      <h1>Mailbox {mailbox._id}</h1>
+      <h2>Mailbox {mailbox._id}</h2>
       <div className="mail-box">
-        <h2>Details</h2>
+        <h3>Details</h3>
         <p>Boxholder: {mailbox.boxHolder}</p>
         <p>Box Size: {mailbox.boxSize}</p>
       </div>
