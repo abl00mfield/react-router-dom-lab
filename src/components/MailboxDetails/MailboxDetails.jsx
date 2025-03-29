@@ -3,12 +3,10 @@ import { useParams } from "react-router";
 const MailboxDetails = (props) => {
   // if (props.mailboxes.length === 0) return <h1>No mailbox Found</h1>;
   const { mailboxId } = useParams();
-  console.log("letters:", props.letters);
-  console.log("mailboxid: ", mailboxId);
+
   const selectedLetters = props.letters.filter(
     (letter) => parseInt(letter.mailboxId) === parseInt(mailboxId)
   );
-  console.log("selected letters: ", selectedLetters);
 
   const mailbox = props.mailboxes.find(
     (box) => box._id === parseInt(mailboxId)
@@ -29,9 +27,10 @@ const MailboxDetails = (props) => {
         ) : (
           selectedLetters.map((letter) => {
             return (
-              <p key={letter._id}>
-                Dear {letter.recipient},<p>{letter.message}</p>
-              </p>
+              <div key={letter._id}>
+                <p>Dear {letter.recipient},</p>
+                <p>{letter.message}</p>
+              </div>
             );
           })
         )}

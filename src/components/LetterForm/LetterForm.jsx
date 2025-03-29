@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const initialState = {
   _id: 0,
-  mailboxId: 1,
+  mailboxId: 1, //when there is only 1 mailbox, value needs to be 1 for select to work
   recipient: "",
   message: "",
 };
@@ -12,6 +12,7 @@ const LetterForm = (props) => {
   const [letterData, setLetterData] = useState(initialState);
   const navigate = useNavigate();
 
+  //updates state of letter variable and redirects to mailbox letter was sent to
   const handleSubmit = (event) => {
     event.preventDefault();
     props.addLetter(letterData);
@@ -19,9 +20,9 @@ const LetterForm = (props) => {
     navigate(`/mailboxes/${letterData.mailboxId}`);
   };
 
+  //continously updates form data as it is being entered
   const handleChange = ({ target }) => {
     setLetterData({ ...letterData, [target.name]: target.value });
-    console.log(letterData);
   };
 
   return (
@@ -32,7 +33,6 @@ const LetterForm = (props) => {
           name="mailboxId"
           id="mailboxId"
           required
-          default
           value={letterData.mailboxId}
           onChange={handleChange}
         >
